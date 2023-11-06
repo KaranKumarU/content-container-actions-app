@@ -2,7 +2,7 @@ on: [push]
 
 jobs:
   hello_world_job:
-    runs_on: windows-latest
+    runs_on: ubuntu-latest
     name: A job to say hello
     steps:
     - name: checkout
