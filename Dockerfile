@@ -1,8 +1,9 @@
 # Container image that runs this code
 FROM alpine:3.10
 
+
 # Copies your code file from your action repository to the filesystem path '/' of the container
-COPY entrypoint.sh /entrypoint.sh 
+COPY /entrypoint.sh /entrypoint.sh 
 
 # changing the file permission to execute it
 RUN chmod +x entrypoint.sh

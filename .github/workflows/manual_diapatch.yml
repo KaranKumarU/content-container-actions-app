@@ -1,0 +1,23 @@
+name: Hello World Workflow
+
+on:
+  workflow_dispatch: # Trigger manually using GitHub's workflow_dispatch event
+    inputs:
+      who-to-greet:
+        description: 'Who to greet'
+        required: true
+        default: 'World'
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Hello world action step
+      id: hello
+      uses: ./
+      with:
+        who-to-greet: ${{ github.event.inputs.who-to-greet }}
+
+    - name: Get the output time
+      run: echo "The time was ${{ steps.hello.outputs.time }}"
